@@ -86,13 +86,14 @@ def create_batch(obs, idx_np, time_np, times, t_max=5):
 
 if __name__ == '__main__':
     # set hyper parameter
-    n_step = 500 # gradient descent step
-    plot_freq = 25
+    n_step = 5000 # gradient descent step
+    plot_freq = 50
 
     # noinspection PyArgumentList
     SpiralFunctionExample = LinearODEF(Tensor([[-0.1, -1.], [1., -0.1]]))
     # RandomLinearODEF = LinearODEF(torch.randn(2, 2))
-    RandomLinearODEF = LinearODEF(Tensor([[0, -0.1], [0.1, 0]]))
+    # Random seed is not a good way to start, can't converge easily
+    RandomLinearODEF = LinearODEF(Tensor([[-1, 1], [-1, 1]]))
 
     ode_true = NeuralODE(SpiralFunctionExample)
     ode_trained = NeuralODE(RandomLinearODEF)
@@ -102,8 +103,8 @@ if __name__ == '__main__':
     z0 = Variable(torch.Tensor([[0.6, 0.3]]))
 
     # generate the labels from true trajectory
-    t_max = 25
-    n_points = 200
+    t_max = 5
+    n_points = 11
     # (time index, batch size, dimension of output)
     obs, index_np, time_np, times = generate_trajectory(ode_true, z0, n_points=n_points, t_max=t_max)
 
