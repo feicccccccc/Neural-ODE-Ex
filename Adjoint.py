@@ -47,6 +47,7 @@ class ODEAdjoint(torch.autograd.Function):
         """
 
         # for enabling Pycharm breakpoint in backward function
+        # disable to run in normal mode
         import pydevd
         pydevd.settrace(suspend=False, trace_only_current_thread=True)
 
