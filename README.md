@@ -1,8 +1,7 @@
 # Neural-ODE-Ex
 Exercise for implementing neural ODE
 
-Backpropagation is not trivial is it is nice to go into the details of the implementation on how
-the continuous backpropagation works.
+Backpropagation is not trivial and it is nice to implement and go through the detialson how the continuous backpropagation works.
 
 Most of the code are copy and reference from Mikhail Surtsukov excellent blog post (https://msurtsukov.github.io/Neural-ODE/)
 
